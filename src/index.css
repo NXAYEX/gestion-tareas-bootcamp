@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-paper font-body text-base text-ink antialiased;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+    outline-style: solid;
+  }
+}
+
+/* Elemento firma: la línea que tacha el título al completar la tarea */
+.strike {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 55%;
+  background-size: 0% 2px;
+  transition: background-size 350ms ease-out, color 350ms;
+}
+.strike.done {
+  background-size: 100% 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .strike {
+    transition: none;
+  }
+}
