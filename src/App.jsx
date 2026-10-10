@@ -13,6 +13,10 @@ export default function App() {
         <p className="mt-2 text-muted">
           Completa VITE_SUPABASE_URL y VITE_SUPABASE_ANON_KEY en el archivo .env.local y reinicia el servidor con npm run dev.
         </p>
+        <ul className="mt-4 text-sm">
+          <li>VITE_SUPABASE_URL: {import.meta.env.VITE_SUPABASE_URL ? "cargada" : "falta"}</li>
+          <li>VITE_SUPABASE_ANON_KEY: {import.meta.env.VITE_SUPABASE_ANON_KEY ? "cargada" : "falta"}</li>
+        </ul>
       </main>
     );
   }
