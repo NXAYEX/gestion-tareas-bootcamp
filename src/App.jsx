@@ -1,15 +1,19 @@
+import { Navigate, Route, Routes } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 import { isConfigured } from "./lib/supabase";
+import AppShell from "./components/layout/AppShell";
+import ProtectedRoute from "./components/layout/ProtectedRoute";
 import LoginPage from "./pages/LoginPage";
 import TasksPage from "./pages/TasksPage";
+import CountdownPage from "./pages/CountdownPage";
 
 export default function App() {
-  const { session, loading } = useAuth();
+  const { session } = useAuth();
 
   if (!isConfigured) {
     return (
       <main className="mx-auto max-w-lg px-4 py-12">
-        <h1 className="font-display text-2xl font-bold">Falta conectar Supabase</h1>
+        <h1 className="font-display text-2xl font-semibold">Falta conectar Supabase</h1>
         <p className="mt-2 text-muted">
           Completa VITE_SUPABASE_URL y VITE_SUPABASE_ANON_KEY en el archivo .env.local y reinicia el servidor con npm run dev.
         </p>
@@ -20,12 +24,21 @@ export default function App() {
       </main>
     );
   }
-  if (loading) {
-    return (
-      <p className="p-8 text-muted" role="status">
-        Cargando…
-      </p>
-    );
-  }
-  return session ? <TasksPage /> : <LoginPage />;
+
+  return (
+    <Routes>
+      <Route path="/login" element={session ? <Navigate to="/" replace /> : <LoginPage />} />
+      <Route
+        element={
+          <ProtectedRoute>
+            <AppShell />
+          </ProtectedRoute>
+        }
+      >
+        <Route path="/" element={<TasksPage />} />
+        <Route path="/cuentas-regresivas" element={<CountdownPage />} />
+      </Route>
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
 }

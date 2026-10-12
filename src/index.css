@@ -12,7 +12,7 @@
   }
 }
 
-/* Elemento firma: la línea que tacha el título al completar la tarea */
+/* Elemento firma de Tareas: la línea que tacha el título al completar */
 .strike {
   background-image: linear-gradient(currentColor, currentColor);
   background-repeat: no-repeat;

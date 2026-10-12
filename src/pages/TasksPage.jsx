@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { LogOut, Search } from "lucide-react";
-import { signOut } from "../services/auth";
+import { Search } from "lucide-react";
 import { useTasks } from "../hooks/useTasks";
 import TaskForm from "../components/TaskForm";
 import TaskList from "../components/TaskList";
@@ -35,17 +34,11 @@ export default function TasksPage() {
     <main className="mx-auto max-w-2xl px-4 py-8 sm:py-12">
       <header className="flex items-start justify-between gap-4">
         <div>
-          <h1 className="font-display text-3xl font-bold">Mis tareas</h1>
+          <h1 className="font-display text-3xl font-semibold">Mis tareas</h1>
           <p className="mt-1 text-muted">
             {loading ? "Cargando…" : pendingCount === 0 ? "Nada pendiente." : `${pendingCount} por hacer`}
           </p>
         </div>
-        <button
-          onClick={signOut}
-          className="flex items-center gap-2 rounded-md border border-line px-3 py-2 text-sm font-semibold hover:bg-surface"
-        >
-          <LogOut size={16} aria-hidden="true" /> Cerrar sesión
-        </button>
       </header>
 
       <TaskForm onSubmit={add} />
@@ -57,7 +50,7 @@ export default function TasksPage() {
               key={f.id}
               onClick={() => setFilter(f.id)}
               aria-pressed={filter === f.id}
-              className={`rounded-md px-3 py-1.5 text-sm font-semibold ${
+              className={`rounded-xl px-3 py-1.5 text-sm font-semibold ${
                 filter === f.id ? "bg-ink text-white" : "text-muted hover:bg-surface hover:text-ink"
               }`}
             >
@@ -73,7 +66,7 @@ export default function TasksPage() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Buscar tareas"
-            className="w-full rounded-md border border-line bg-surface py-1.5 pl-9 pr-3 text-sm hover:border-muted focus:border-accent sm:w-56"
+            className="w-full rounded-xl border border-line bg-surface py-1.5 pl-9 pr-3 text-sm hover:border-muted focus:border-accent sm:w-56"
           />
         </label>
       </div>

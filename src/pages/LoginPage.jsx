@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { signIn, signUp } from "../services/auth";
+import Cat from "../components/cats/Cat";
 
 export default function LoginPage() {
   const [mode, setMode] = useState("login");
@@ -32,11 +33,12 @@ export default function LoginPage() {
     }
   };
 
-  const field = "mt-1 w-full rounded-md border border-line bg-surface px-3 py-2 font-normal hover:border-muted focus:border-accent";
+  const field = "mt-1 w-full rounded-xl border border-line bg-surface px-3 py-2 font-normal hover:border-muted focus:border-accent";
 
   return (
     <main className="mx-auto flex min-h-screen max-w-sm flex-col justify-center px-4 py-12">
-      <h1 className="font-display text-3xl font-bold">Tareas</h1>
+      <Cat size={72} variant="happy" className="mb-2" />
+      <h1 className="font-display text-3xl font-semibold">Mi planner</h1>
       <p className="mt-2 text-muted">{isLogin ? "Entra para ver tu lista." : "Crea tu cuenta y empieza tu lista."}</p>
       <form onSubmit={submit} className="mt-8 space-y-4">
         <label className="block text-sm font-semibold">
@@ -62,7 +64,7 @@ export default function LoginPage() {
         )}
         <button
           disabled={busy}
-          className="w-full rounded-md bg-accent px-4 py-2 font-semibold text-white hover:bg-[#2342b8] disabled:opacity-60"
+          className="w-full rounded-xl bg-accent px-4 py-2 font-semibold text-white hover:bg-accent-dark disabled:opacity-60"
         >
           {busy ? "Un momento…" : isLogin ? "Entrar" : "Crear cuenta"}
         </button>

@@ -40,7 +40,7 @@ export default function TaskRow({ task, onToggle, onEdit, onDelete }) {
     );
   }
 
-  const iconBtn = "rounded-md p-2 text-muted hover:bg-surface hover:text-ink";
+  const iconBtn = "rounded-xl p-2 text-muted hover:bg-surface hover:text-ink";
 
   return (
     <li className="flex items-start gap-3 border-b border-line py-3">
@@ -80,11 +80,11 @@ export default function TaskRow({ task, onToggle, onEdit, onDelete }) {
         <div className="flex shrink-0 items-center gap-1 text-sm">
           <button
             onClick={() => act(() => onDelete(task.id))}
-            className="rounded-md bg-urgent px-3 py-1.5 font-semibold text-white hover:opacity-90"
+            className="rounded-xl bg-urgent px-3 py-1.5 font-semibold text-white hover:opacity-90"
           >
             Borrar tarea
           </button>
-          <button onClick={() => setConfirming(false)} className="rounded-md px-3 py-1.5 font-semibold hover:bg-surface">
+          <button onClick={() => setConfirming(false)} className="rounded-xl px-3 py-1.5 font-semibold hover:bg-surface">
             Cancelar
           </button>
         </div>

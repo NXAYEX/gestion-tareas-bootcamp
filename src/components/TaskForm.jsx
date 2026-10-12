@@ -26,7 +26,7 @@ export default function TaskForm({ onSubmit }) {
     setDueDate("");
   };
 
-  const ctl = "rounded-md border border-line bg-surface px-3 py-2 text-sm hover:border-muted focus:border-accent";
+  const ctl = "rounded-xl border border-line bg-surface px-3 py-2 text-sm hover:border-muted focus:border-accent";
 
   return (
     <form onSubmit={submit} className="mt-8">
@@ -58,7 +58,7 @@ export default function TaskForm({ onSubmit }) {
         <input id="new-due" type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} className={ctl} />
         <button
           disabled={busy || !title.trim()}
-          className="ml-auto flex items-center gap-1.5 rounded-md bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-[#2342b8] disabled:opacity-50"
+          className="ml-auto flex items-center gap-1.5 rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent-dark disabled:opacity-50"
         >
           <Plus size={16} aria-hidden="true" /> {busy ? "Agregando…" : "Agregar tarea"}
         </button>

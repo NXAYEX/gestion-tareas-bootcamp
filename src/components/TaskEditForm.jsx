@@ -16,7 +16,7 @@ export default function TaskEditForm({ task, onSave, onCancel }) {
     setBusy(false);
   };
 
-  const ctl = "mt-1 block rounded-md border border-line bg-surface px-3 py-2 text-sm font-normal hover:border-muted focus:border-accent";
+  const ctl = "mt-1 block rounded-xl border border-line bg-surface px-3 py-2 text-sm font-normal hover:border-muted focus:border-accent";
 
   return (
     <form onSubmit={submit} className="space-y-3">
@@ -47,11 +47,11 @@ export default function TaskEditForm({ task, onSave, onCancel }) {
       <div className="flex gap-2">
         <button
           disabled={busy || !title.trim()}
-          className="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-[#2342b8] disabled:opacity-50"
+          className="rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent-dark disabled:opacity-50"
         >
           {busy ? "Guardando…" : "Guardar cambios"}
         </button>
-        <button type="button" onClick={onCancel} className="rounded-md px-4 py-2 text-sm font-semibold hover:bg-surface">
+        <button type="button" onClick={onCancel} className="rounded-xl px-4 py-2 text-sm font-semibold hover:bg-surface">
           Cancelar
         </button>
       </div>
