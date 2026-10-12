@@ -5,6 +5,10 @@ const FACES = {
   sleepy: { eyes: "line", mouth: "small" },
   cheer: { eyes: "star", mouth: "open" },
   curious: { eyes: "dot", mouth: "small" },
+  love: { eyes: "heart", mouth: "smile" },
+  wink: { eyes: "wink", mouth: "smile" },
+  surprised: { eyes: "wide", mouth: "o" },
+  cool: { eyes: "shades", mouth: "smile" },
 };
 
 function Eyes({ type }) {
@@ -13,6 +17,42 @@ function Eyes({ type }) {
   }
   if (type === "line") {
     return <path d="M24 39h8M48 39h8" stroke="#2B2630" strokeWidth="2.4" strokeLinecap="round" />;
+  }
+  if (type === "heart") {
+    const heart = "M28 42c-5-3.2-6.4-7-3.4-8.6 1.8-.9 3.2.2 3.4 1.6.2-1.4 1.6-2.5 3.4-1.6 3 1.6 1.6 5.4-3.4 8.6z";
+    return (
+      <g fill="#B5433A">
+        <path d={heart} />
+        <path d={heart} transform="translate(24 0)" />
+      </g>
+    );
+  }
+  if (type === "wink") {
+    return (
+      <g>
+        <circle cx="28" cy="38" r="3" fill="#2B2630" />
+        <path d="M48 39q4-5 8 0" stroke="#2B2630" strokeWidth="2.4" strokeLinecap="round" fill="none" />
+      </g>
+    );
+  }
+  if (type === "wide") {
+    return (
+      <g fill="#2B2630">
+        <circle cx="28" cy="38" r="4.6" />
+        <circle cx="52" cy="38" r="4.6" />
+        <circle cx="29.6" cy="36.4" r="1.5" fill="#fff" />
+        <circle cx="53.6" cy="36.4" r="1.5" fill="#fff" />
+      </g>
+    );
+  }
+  if (type === "shades") {
+    return (
+      <g fill="#2B2630">
+        <rect x="19" y="33" width="19" height="10" rx="4" />
+        <rect x="42" y="33" width="19" height="10" rx="4" />
+        <path d="M38 37h4" stroke="#2B2630" strokeWidth="2" />
+      </g>
+    );
   }
   if (type === "star") {
     return (
@@ -41,7 +81,9 @@ export default function Cat({ variant = "happy", color = "#F6CBA6", size = 56, c
       <ellipse cx="40" cy="42" rx="30" ry="25" fill={color} stroke="#2B2630" strokeWidth="2.4" />
       <Eyes type={face.eyes} />
       <ellipse cx="40" cy="47" rx="3" ry="2.2" fill="#F4B6CC" stroke="#2B2630" strokeWidth="1.6" />
-      {face.mouth === "open" ? (
+      {face.mouth === "o" ? (
+        <ellipse cx="40" cy="55" rx="2.8" ry="3.2" fill="#B5433A" stroke="#2B2630" strokeWidth="1.6" />
+      ) : face.mouth === "open" ? (
         <path d="M34 52q6 8 12 0z" fill="#B5433A" stroke="#2B2630" strokeWidth="1.8" strokeLinejoin="round" />
       ) : (
         <path d={face.mouth === "smile" ? "M33 51q3.5 4 7 0q3.5 4 7 0" : "M36 52q4 3 8 0"} stroke="#2B2630" strokeWidth="2" strokeLinecap="round" fill="none" />

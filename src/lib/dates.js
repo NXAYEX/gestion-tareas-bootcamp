@@ -62,3 +62,10 @@ export function formatLong(iso) {
 export function formatMonth({ y, m }) {
   return cap(new Date(y, m - 1, 1).toLocaleDateString("es", { month: "long", year: "numeric" }));
 }
+
+// Lunes de la semana que contiene la fecha
+export function weekStartOf(iso) {
+  const { y, m, d } = parseISO(iso);
+  const weekday = (new Date(Date.UTC(y, m - 1, d)).getUTCDay() + 6) % 7;
+  return addDays(iso, -weekday);
+}

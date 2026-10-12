@@ -1,9 +1,9 @@
 import { Check } from "lucide-react";
 import { COLORS } from "../../lib/palette";
 
-export default function ColorPicker({ value, onChange }) {
+export default function ColorPicker({ value, onChange, label = "Color del evento" }) {
   return (
-    <div role="radiogroup" aria-label="Color del evento" className="flex flex-wrap gap-2">
+    <div role="radiogroup" aria-label={label} className="flex flex-wrap gap-2">
       {COLORS.map((c) => {
         const on = c.hex === value;
         return (

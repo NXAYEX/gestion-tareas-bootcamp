@@ -13,12 +13,12 @@ Cada tarea se completa y se verifica por separado, en su propia rama, con URL de
 - [x] **4. Filtros y búsqueda.**
 - [x] **5. Calendario mensual** (con filtros, detalle y creación desde un día).
 - [x] **6. Resumen de 7 días y urgentes.**
-- [ ] **7. Tablas `habits` y `habit_logs`** (`003_create_habits.sql`): ejecutar y probar RLS con 2 usuarios, incluido registrar sobre un hábito ajeno (debe fallar) y duplicados (deben fallar).
-- [ ] **8. Lógica de hábitos** (`habitStats.js`, con pruebas de rachas: hoy sin marcar, hueco de un día, cruce de mes, sin registros).
-- [ ] **9. Gestión de hábitos**: crear, editar, archivar, reordenar, eliminar, hábitos de ejemplo.
-- [ ] **10. Cuadrícula mensual de escritorio**: marcar, estado de guardado, hoy resaltado, navegación de meses, bloqueo de futuro.
-- [ ] **11. Vista semanal móvil.**
-- [ ] **12. Metas y resumen** (progreso por hábito, % mensual, mejor hábito, racha, gatito de ánimo).
+- [x] **7. Tablas `habits` y `habit_logs`** (`003_create_habits.sql`): ejecutar y probar RLS con 2 usuarios, incluido registrar sobre un hábito ajeno (debe fallar) y duplicados (deben fallar).
+- [x] **8. Lógica de hábitos** (`habitStats.js`, con pruebas de rachas: hoy sin marcar, hueco de un día, cruce de mes, sin registros).
+- [x] **9. Gestión de hábitos**: crear, editar, archivar, reordenar, eliminar, hábitos de ejemplo.
+- [x] **10. Cuadrícula mensual de escritorio**: marcar, estado de guardado, hoy resaltado, navegación de meses, bloqueo de futuro.
+- [x] **11. Vista semanal móvil.**
+- [x] **12. Metas y resumen** (progreso por hábito, % mensual, mejor hábito, racha, gatito de ánimo).
 - [ ] **13. Revisión final**: lista de 10 puntos de `claude.md`, 375/768/1280 px, accesibilidad (foco, contraste), fusión a `main`.
 
 Orden propuesto: 0 → 1–6 (Cuenta regresiva) → 7–12 (Hábitos) → 13, porque dijiste que la cuenta regresiva es la más importante para planificar tu estudio.
