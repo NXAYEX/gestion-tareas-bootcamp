@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { BookOpen, CalendarDays, ListChecks, LogOut, Pin, Target } from "lucide-react";
+import { BookOpen, CalendarDays, ListChecks, Hourglass, LogOut, Pin, Target } from "lucide-react";
 import { signOut } from "../../services/auth";
 import Cat from "../cats/Cat";
 
@@ -9,6 +9,7 @@ const LINKS = [
   { to: "/cuentas-regresivas", label: "Cuenta regresiva", icon: CalendarDays },
   { to: "/diario", label: "Diario", icon: BookOpen },
   { to: "/pizarras", label: "Pizarras", icon: Pin },
+  { to: "/vida", label: "Vida en semanas", icon: Hourglass },
 ];
 
 export default function AppShell() {

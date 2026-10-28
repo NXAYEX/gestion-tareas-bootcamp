@@ -9,6 +9,7 @@ import CountdownPage from "./pages/CountdownPage";
 import HabitsPage from "./pages/HabitsPage";
 import JournalPage from "./pages/JournalPage";
 import BoardsPage from "./pages/BoardsPage";
+import LifePage from "./pages/LifePage";
 
 export default function App() {
   const { session } = useAuth();
@@ -43,6 +44,7 @@ export default function App() {
         <Route path="/cuentas-regresivas" element={<CountdownPage />} />
         <Route path="/diario" element={<JournalPage />} />
         <Route path="/pizarras" element={<BoardsPage />} />
+        <Route path="/vida" element={<LifePage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
