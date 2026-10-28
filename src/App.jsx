@@ -7,6 +7,7 @@ import LoginPage from "./pages/LoginPage";
 import TasksPage from "./pages/TasksPage";
 import CountdownPage from "./pages/CountdownPage";
 import HabitsPage from "./pages/HabitsPage";
+import JournalPage from "./pages/JournalPage";
 
 export default function App() {
   const { session } = useAuth();
@@ -39,6 +40,7 @@ export default function App() {
         <Route path="/" element={<TasksPage />} />
         <Route path="/habitos" element={<HabitsPage />} />
         <Route path="/cuentas-regresivas" element={<CountdownPage />} />
+        <Route path="/diario" element={<JournalPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

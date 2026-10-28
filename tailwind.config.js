@@ -10,6 +10,7 @@ export default {
       xl: ["20px", "28px"],
       "2xl": ["28px", "34px"],
       "3xl": ["40px", "44px"],
+      hand: ["24px", "32px"], // solo para texto manuscrito (diario y post-its)
     },
     extend: {
       colors: {
@@ -34,6 +35,7 @@ export default {
       fontFamily: {
         display: ["Fredoka", "sans-serif"],
         body: ["Nunito", "sans-serif"],
+        hand: ["Caveat", "cursive"],
       },
       boxShadow: {
         soft: "0 1px 2px rgba(43,38,48,0.05), 0 4px 14px rgba(43,38,48,0.05)",

@@ -9,6 +9,15 @@ const FACES = {
   wink: { eyes: "wink", mouth: "smile" },
   surprised: { eyes: "wide", mouth: "o" },
   cool: { eyes: "shades", mouth: "smile" },
+  sad: { eyes: "droop", mouth: "frown" },
+  worried: { eyes: "wide", mouth: "wavy", brows: true },
+};
+
+const MOUTHS = {
+  smile: "M33 51q3.5 4 7 0q3.5 4 7 0",
+  small: "M36 52q4 3 8 0",
+  frown: "M34 56q6-6 12 0",
+  wavy: "M33 55q3.5-3 7 0q3.5 3 7 0",
 };
 
 function Eyes({ type }) {
@@ -17,6 +26,16 @@ function Eyes({ type }) {
   }
   if (type === "line") {
     return <path d="M24 39h8M48 39h8" stroke="#2B2630" strokeWidth="2.4" strokeLinecap="round" />;
+  }
+  if (type === "droop") {
+    return (
+      <g>
+        <circle cx="28" cy="39" r="3" fill="#2B2630" />
+        <circle cx="52" cy="39" r="3" fill="#2B2630" />
+        <path d="M22 33l9 3M58 33l-9 3" stroke="#2B2630" strokeWidth="2" strokeLinecap="round" />
+        <path d="M26 45q-2 4 0 5" stroke="#B3D4F2" strokeWidth="2.6" strokeLinecap="round" fill="none" />
+      </g>
+    );
   }
   if (type === "heart") {
     const heart = "M28 42c-5-3.2-6.4-7-3.4-8.6 1.8-.9 3.2.2 3.4 1.6.2-1.4 1.6-2.5 3.4-1.6 3 1.6 1.6 5.4-3.4 8.6z";
@@ -81,12 +100,13 @@ export default function Cat({ variant = "happy", color = "#F6CBA6", size = 56, c
       <ellipse cx="40" cy="42" rx="30" ry="25" fill={color} stroke="#2B2630" strokeWidth="2.4" />
       <Eyes type={face.eyes} />
       <ellipse cx="40" cy="47" rx="3" ry="2.2" fill="#F4B6CC" stroke="#2B2630" strokeWidth="1.6" />
+      {face.brows && <path d="M22 30l9-3M58 30l-9-3" stroke="#2B2630" strokeWidth="2" strokeLinecap="round" />}
       {face.mouth === "o" ? (
         <ellipse cx="40" cy="55" rx="2.8" ry="3.2" fill="#B5433A" stroke="#2B2630" strokeWidth="1.6" />
       ) : face.mouth === "open" ? (
         <path d="M34 52q6 8 12 0z" fill="#B5433A" stroke="#2B2630" strokeWidth="1.8" strokeLinejoin="round" />
       ) : (
-        <path d={face.mouth === "smile" ? "M33 51q3.5 4 7 0q3.5 4 7 0" : "M36 52q4 3 8 0"} stroke="#2B2630" strokeWidth="2" strokeLinecap="round" fill="none" />
+        <path d={MOUTHS[face.mouth] ?? MOUTHS.small} stroke="#2B2630" strokeWidth="2" strokeLinecap="round" fill="none" />
       )}
       <circle cx="20" cy="48" r="4" fill="#F4B6CC" opacity="0.7" />
       <circle cx="60" cy="48" r="4" fill="#F4B6CC" opacity="0.7" />
